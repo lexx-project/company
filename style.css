@@ -450,6 +450,26 @@ body {
   margin-right: auto;
   transition: max-width 0.2s;
 }
+
+.projectDetailBtn {
+  display: inline-block;
+  margin-top: 12px;
+  background: #0098a3;
+  color: #fff;
+  padding: 8px 22px;
+  border-radius: 20px;
+  font-size: 0.98rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 152, 163, 0.08);
+}
+.projectDetailBtn:hover {
+  background: #00707a;
+  color: #fff;
+}
+
 .whyUs {
   margin-top: 60px;
   margin-bottom: 40px;
@@ -615,17 +635,25 @@ footer ul ul li {
       "aboutUs"
       "whoUs"
       "visionMission";
-    gap: 20px;
+    gap: 16px;
+    padding: 12px 2vw 12px 2vw;
   }
   .whoUs,
   .visionMission {
     margin-left: 0;
     margin-right: 0;
+    padding: 10px 8px 30px 8px;
   }
   .servicesGrid,
   .projectsGrid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 16px;
+    max-width: 100%;
+    padding: 0 2vw;
+  }
+  .projectCard,
+  .serviceCard {
+    padding: 18px 8px 16px 8px;
   }
   .contact {
     width: 98%;
@@ -635,21 +663,26 @@ footer ul ul li {
 }
 
 @media screen and (max-width: 640px) {
+  body {
+    grid-template-areas:
+      "hero"
+      "about"
+      "visionMission"
+      "services"
+      "projects"
+      "whyUs"
+      "contact"
+      "footer";
+  }
   .header {
-    padding: 8px 6px;
-    height: 56px;
-    min-height: 56px;
-    max-height: 56px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: rgb(0, 10, 32);
-    z-index: 1000;
+    padding: 6px 2vw;
+    height: 48px;
+    min-height: 48px;
+    max-height: 48px;
   }
   .header img {
-    width: 60px;
-    height: 36px;
+    width: 44px;
+    height: 28px;
     margin: 0;
     object-fit: contain;
   }
@@ -658,55 +691,53 @@ footer ul ul li {
   }
   .hamburger {
     display: flex !important;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 36px;
-    height: 36px;
-    cursor: pointer;
-    z-index: 200;
-    margin-right: 4px;
+    width: 32px;
+    height: 32px;
+    margin-right: 0;
   }
   .hamburger span {
-    display: block;
-    width: 26px;
-    height: 3.5px;
-    background: #fff;
-    margin: 3.5px 0;
-    border-radius: 2px;
-    transition: 0.3s;
+    width: 22px;
+    height: 3px;
+    margin: 3px 0;
   }
   .hero {
-    padding: 70px 4vw 28px 4vw;
+    padding: 56px 2vw 18px 2vw;
   }
   .hero h1 {
-    font-size: 1.1rem;
-    text-align: center;
-    margin-bottom: 10px;
+    font-size: 1.05rem;
+    margin-bottom: 8px;
   }
   .hero p {
-    padding: 0 2vw 10px 2vw;
+    padding: 0 2vw 8px 2vw;
     font-size: 0.92rem;
+  }
+  .buttonHero {
+    flex-direction: column;
+    gap: 4px;
   }
   .buttonHero p {
-    padding: 8px 12px;
+    padding: 7px 12px;
     font-size: 0.92rem;
-    margin: 6px;
+    margin: 4px 0;
+  }
+  .about {
+    padding: 8px 2vw 8px 2vw;
+    gap: 8px;
   }
   .about h2 {
-    font-size: 1.1rem;
-    margin-bottom: 16px;
+    font-size: 1.05rem;
+    margin-bottom: 10px;
   }
   .whoUsCards {
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
   }
   .whoUsCards > div {
-    padding: 10px 2px;
+    padding: 8px 2px;
   }
   .visionMission,
   .whoUs {
-    padding: 8px 2px 18px;
+    padding: 8px 2px 12px 2px;
   }
   .visionMission ul,
   .visionMission p,
@@ -724,36 +755,64 @@ footer ul ul li {
   .servicesGrid,
   .projectsGrid {
     grid-template-columns: 1fr;
-    gap: 8px;
+    gap: 6px;
     max-width: 100%;
     padding: 0 1vw;
   }
+  .projectCard,
+  .serviceCard {
+    padding: 10px 2vw 10px 2vw;
+  }
   .projectImg {
     max-width: 100%;
+    margin-bottom: 10px;
   }
   .whyUs {
-    padding: 14px 2px 10px 2px;
+    padding: 10px 2px 6px 2px;
+  }
+  .whyUs ul {
+    gap: 8px;
   }
   .whyUs ul li {
     min-width: 0;
-    padding: 8px 4px;
+    padding: 6px 2px;
     font-size: 0.92rem;
   }
   .contact {
     width: 100%;
-    padding: 6px 1vw;
+    padding: 4px 1vw;
+  }
+  .contact input,
+  .contact textarea {
+    font-size: 0.95rem;
+    padding: 7px 8px;
+  }
+  .contact button {
+    padding: 8px 0;
+    font-size: 0.95rem;
   }
   footer {
-    font-size: 0.9rem;
-    padding: 10px 0 0 0;
+    font-size: 0.88rem;
+    padding: 8px 0 0 0;
   }
   .footer-socials {
-    gap: 6px;
+    gap: 4px;
   }
   footer img {
-    width: 22px;
-    height: 22px;
+    width: 18px;
+    height: 18px;
   }
+}
+
+.projectsGrid,
+.servicesGrid {
+  width: 100%;
+  box-sizing: border-box;
+}
+.projectCard,
+.serviceCard {
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .hamburger {
